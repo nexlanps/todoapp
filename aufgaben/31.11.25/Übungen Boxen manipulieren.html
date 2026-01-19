@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übungen Boxen manipulieren</title>
+    <style>
+        /* Entferne Margin und Padding im Body (Aufgabe 1) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+        }
+
+        /* --- Aufgabe 1: Navigation / rote Box --- */
+        .navigation {
+            width: 100vw; /* so breit wie der Bildschirm */
+            height: 80px; /* gewünschte Höhe */
+            background: red; /* Farbe kann ersetzt werden */
+            box-sizing: border-box; /* sorgt dafür, dass Border zur Gesamtgröße gehört */
+            border-bottom: 5px solid green; /* grüner Rahmen unten, 5px */
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .explain {
+            font-size: 0.9rem;
+            color: #222;
+            margin: 12px 20px;
+        }
+
+        /* --- Aufgabe 2: große Box mit innerer grüner Box, zentriert (Flexbox) --- */
+        .box-outer {
+            width: 600px;
+            height: 400px;
+            border: 2px solid lightgrey;
+            margin: 24px;
+            display: flex;
+            align-items: center; /* vertikal zentrieren des inneren Elements */
+            justify-content: center; /* horizontal zentrieren */
+            background: transparent;
+        }
+
+        .box-inner {
+            width: 300px;
+            height: 200px;
+            /* rgba-Farbe wie verlangt */
+            background: rgba(34, 197, 94, 0.9); /* halb-durchsichtiges grün */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 6px;
+        }
+
+        /* --- Aufgabe 3: große gelbe Box mit 9 kleinen Boxen --- */
+        .yellow-container {
+            width: 1000px;
+            height: 600px;
+            border: 2px solid gray;
+            background: yellow;
+            margin: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* verteilt die 3 Reihen gleichmäßig */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between; /* 3 Boxen nebeneinander gleichmäßig */
+        }
+
+        .small-box {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #333;
+            background: #fff;
+            display: flex;
+            align-items: center; /* vertical alignment of the letter */
+            padding: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Ausrichtung der Buchstaben innerhalb der kleinen Boxen */
+        .align-left { justify-content: flex-start; }
+        .align-center { justify-content: center; }
+        .align-end { justify-content: flex-end; }
+
+        /* kleiner Hilfsbereich fuer Demo-Beschriftungen */
+        .section-title { margin: 8px 24px; font-weight: bold; }
+    </style>
+</head>
+ 
+<body>
+    <!-- Aufgabe 1: Rote Navigationsbox -->
+    <div class="navigation">Obere rote Box (80px Höhe) — border-bottom: 5px grün</div>
+    <p class="explain">Hinweis: Standardmäßig (box-sizing: content-box) würde ein 80px hohes Element plus ein 5px Border unten insgesamt 85px sichtbar sein. Mit <code>box-sizing: border-box</code> bleibt die Gesamthöhe bei 80px, Border wird eingerechnet.</p>
+
+    <!-- Aufgabe 2: Box mit innerer grüner Box, zentriert -->
+    <div class="section-title">Aufgabe 2</div>
+    <div class="box-outer">
+        <div class="box-inner">Zentriert (rgba)</div>
+    </div>
+
+    <!-- Aufgabe 3: Gelbe Box mit 9 kleinen Boxen -->
+    <div class="section-title">Aufgabe 3</div>
+    <div class="yellow-container">
+        <!-- obere Reihe: Buchstaben links -->
+        <div class="row">
+            <div class="small-box align-left"><span>A</span></div>
+            <div class="small-box align-left"><span>B</span></div>
+            <div class="small-box align-left"><span>C</span></div>
+        </div>
+
+        <!-- mittlere Reihe: Buchstaben zentriert -->
+        <div class="row">
+            <div class="small-box align-center"><span>D</span></div>
+            <div class="small-box align-center"><span>E</span></div>
+            <div class="small-box align-center"><span>F</span></div>
+        </div>
+
+        <!-- untere Reihe: Buchstaben am Ende -->
+        <div class="row">
+            <div class="small-box align-end"><span>G</span></div>
+            <div class="small-box align-end"><span>H</span></div>
+            <div class="small-box align-end"><span>I</span></div>
+        </div>
+    </div>
+ 
+ 
+</body>
+ 
+</html>
